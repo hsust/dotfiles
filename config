@@ -1,0 +1,7 @@
+Host analytics
+HostName ec2-54-161-216-99.compute-1.amazonaws.com
+User ubuntu
+
+Host eniac
+HostName eniac.seas.upenn.edu
+User hsust

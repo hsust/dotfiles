@@ -1,0 +1,6 @@
+alias penn="cd ~/Documents/UPenn2014-2015/"
+alias h="history"
+alias rmdir="rm -r"
+alias c="clear"
+alias vi="vim"
+alias downloads="cd ~/Downloads/"

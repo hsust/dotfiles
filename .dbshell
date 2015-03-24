@@ -1,0 +1,99 @@
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":"$events.0.ip"}}},{"$group":{"_id":{"ip":"$_id.ip"},"sum":{"$sum":1}}}],cursor={})
+db.May_2014_M101J.count()
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":"$events.0.ip"}}}],cursor={})
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":"$events.0"}}}],cursor={})
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":"$events[0]"}}}],cursor={})
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":"$events[0].ip"}}}],cursor={})
+db.May_2014_M101J.aggregate([{"$project":{"event":"$events[0]"}}])
+db.May_2014_M101J.aggregate([{"$project":{"event":"$events[0].ip"}}])
+db.May_2014_M101J.aggregate([{"$project":{"event":"$student_id"}}])
+db.May_2014_M101J.aggregate([{"$project":{"event":"$events.0"}}])
+it
+i
+it
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":{"$first":"$events"}}}}],cursor={})
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":"$events"}}}],cursor={})
+db.May_2014_M101J.aggregate([{"$group":{"_id":{"student_id":"$student_id","ip":"$events"}}},{"$limit":5}],cursor={})
+db.May_2014_M101J.aggregate([{"$limit":5},{"$group":{"_id":{"student_id":"$student_id","ip":"$events"}}}],cursor={})
+db.May_2014_M101J.aggregate([{"$limit":5},{"$group":{"_id":{"student_id":"$student_id","ip":"$events"}}}],cursor={}).pretty()
+db.May_2014_M101J.aggregate([{"$limit":5},{"$group":{"_id":{"student_id":"$student_id","ip":"$events.0.ip"}}}],cursor={}).pretty()
+db.May_2014_M101J.aggregate([{"$limit":5},{"$group":{"_id":{"student_id":"$student_id","ip":"$events[0].ip"}}}],cursor={}).pretty()
+;
+db.May_2014_M101J.aggregate([{"$limit":5},{"$group":{"_id":{"student_id":"$student_id","ip":{"$first":"$events"}}}}],cursor={}).pretty()
+db.May_2014_M101J.distinct("events.ip")
+db.May_2014_M101J.aggregate([     {"$match":{"events.ip":{"$exists":true}}},     {"$project":{"_id":0,"student_id":1,"events.ip":1}},     {"$unwind":"$events"},     {"$project":{"_id":0,"events.ip":1}},     {"$group":{"_id":"$events.ip","count":{"$sum":1}}}, ])
+it
+db.May_2014_M101J.find().pretty()
+quit
+show collections
+use track
+show collections
+db.May_2014_M101J.count()
+db.May_2014_M101J.aggregate([ {$group: { _id: "$ip", n: {$sum : 1}} } ])
+db.overall_sample_set.count()
+db.overall_sample_set.aggregate([ {$group: { _id: "$ip", n: {$sum : 1}} } ])
+;
+db.overall_sample_set.aggregate([             {"$match":{"events.ip":{"$exists":True}}}])
+db.overall_sample_set.aggregate([{"$match":{"events.ip":{"$exists":true}}}])
+db.overall_sample_set.aggregate([{"$match":{"events.ip":{"$exists":true}}}]).count()
+db.overall_sample_set.aggregate([             {"$match":{"ip":{"$exists":True},"events.ip":{"$exists":True}}},             {"$project":{"_id":0,"student_id":1,"events.ip":1}},             {"$unwind":"$events"},             {"$project":{"_id":0,"events.ip":1}},             {"$group":{"_id":"$events.ip","count":{"$sum":1}}},         ])
+db.overall_sample_set.aggregate([             {"$match":{"ip":{"$exists":true},"events.ip":{"$exists":true}}},             {"$project":{"_id":0,"student_id":1,"events.ip":1}},             {"$unwind":"$events"},             {"$project":{"_id":0,"events.ip":1}},             {"$group":{"_id":"$events.ip","count":{"$sum":1}}},         ])
+c
+cl
+db.overall_sample_set.aggregate([             {"$match":{"events.ip":{"$exists":true}}},             {"$project":{"_id":0,"student_id":1,"events.ip":1}},             {"$unwind":"$events"},             {"$project":{"_id":0,"events.ip":1}},             {"$group":{"_id":"$events.ip","count":{"$sum":1}}},         ])
+it
+db.overall_sample_set.count()
+show collections
+use track
+show collections
+use track
+db.overall_sample_set.findOne()
+;
+db.overall_sample_set.aggregate([ {$group: { _id: "$ip", n: {$sum : 1}} } ])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":"10."*}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":"10.*"}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":"10.236.150.154"}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":"10./"}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":10/}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":"10/"}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":"10./*"}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":10./*}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":10*}}])
+db.overall_sample_set.aggregate([{$group: { _id: "$ip", n: {$sum : 1}} } ,{$match: {"_id":"10*"}}])
+db.overall_sample_set.ensureIndex({ ip : 1})
+db.overall_sample_set.aggregate( [ { $match : { ip : { $not : /^10\./ } } }, { $group : { _id : 0, count : { $sum : 1 } } } ] )
+db.overall_sample_set.aggregate([ {"$match" :{"ip":{"$not":/^10\./}}},             {"$match":{"events.ip":{"$exists":true}}},             {"$project":{"_id":0,"student_id":1,"events.ip":1}},             {"$unwind":"$events"},             {"$project":{"_id":0,"events.ip":1}},             {"$group":{"_id":"$events.ip","count":{"$sum":1}}},         ])
+it
+i
+it
+use track
+db.overall_sample_set.aggregate([ {$group: { _id: "$ip", n: {$sum : 1}} } ])
+db.overall_sample_set.aggregate([ {$group: { _id: "$events.ip", n: {$sum : 1}} } ])
+db.overall_sample_set.aggregate([ {$group: { _id: "$events.ip", n: {$sum : 1}} } ]).count()
+db.overall_sample_set.aggregate([ {$group: { _id: "$events.ip", n: {$sum : 1}} } ])
+use track
+show collections
+db.overall_sample_set.findOne()
+db.overall_sample_set.find().limit(5).pretty()
+show collections
+db.ip_country.findOne()
+db.ip_country.find({"begin_ip_num":{"$lte":2921648058}},{"end_ip_num":{"$gte":2921648058}})
+db.ip_country.find({"begin_ip_num":{$lte:2921648058}},{"end_ip_num":{$gte:2921648058}})
+db.ip_country.find({begin_ip_num:{$lte:2921648058}},{end_ip_num:{$gte:2921648058}})
+db.ip_country.find({"begin_ip_num":{"$lte":16777216}})
+db.ip_country.find({"begin_ip_num":{"$lte":16777218}})
+db.ip_country.find({"begin_ip_num":{"$lte":2921648058}})
+db.ip_country.find({"begin_ip_num":{"$lte":2921648058}},{"end_ip_num":{"$gte":2921648058}})
+db.ip_country.find({"end_ip_num":{"$gte":2921648058}})
+db.ip_country.find({"begin_ip_num":{"$lte":2921648058},"end_ip_num":{"$gte":2921648058}})
+show collections
+db.overall_sample_set.count()
+db.ip_country.count()
+db.May_2014_M101J.count()
+db.overall_sample_set.aggregate([ {$group: { _id: "$events.ip", n: {$sum : 1}} } ]).count()exit
+use track
+show collections
+db.ip_country.count()
+db.ip_country.drop()
+show collections
